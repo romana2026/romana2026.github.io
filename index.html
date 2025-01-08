@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        Învățăm limba română!
+        <div class=" spacer"></div>
+        <textarea id="textInput" placeholder="Aici veți vedea textul rostit de Dumneavoastră"></textarea>
+        <div class=" spacer"></div>
+        <button id="sendButton" onclick="speech()">Doriți să spuneți ceva? Apăsați aici - și vorbiți</button>
+        <div class=" spacer"></div>
+        <textarea id="textOutput" placeholder="Aici veți vedea răspunsul pronunțat de Inteligența Artificială (IA)"></textarea>
+        <div class=" spacer"></div>
+        <button onclick="talk(outp.value)">Doriți să ascultați încă o dată răspunsul pronunțat de IA - apăsați aici</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+
+let ak = prompt('Enter apiKey');
+
+    </script>
+
+</body>
+</html>
