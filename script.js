@@ -3,8 +3,8 @@
         let outp = window.document.getElementById('textOutput');
         let conversation = [];
 
-        let speechRecognizer = new webkitSpeechRecognition();        // recunoaștere voce
-        let speechSynthesis = window.speechSynthesis;                // sinteză voce
+        let speechRecognizer = new webkitSpeechRecognition();  // recunoaștere voce
+        let speechSynthesis = window.speechSynthesis;          // sinteză voce
 
         const speech = () => {
             speechRecognizer.lang = 'ro-RO';
