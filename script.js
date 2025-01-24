@@ -11,7 +11,7 @@ fetch('https://openai-server-4d3w.onrender.com/check-mac',
     if (data.success) token = data.token;
     else alert('Sorry...');
   })
-  // .catch(error => console.error('Error:', error));
+  .catch(error => console.error('Error:', error));
 
 let sendButton = window.document.getElementById('sendButton');
 let inp = window.document.getElementById('textInput');
@@ -59,9 +59,9 @@ const requestFunc = () => {
    conversation.push({ "role": "assistant", "content": aiResponse });
    talk(aiResponse);
   })
-  // .catch(error => {
-  // console.error("Error request:", error.message);
-  // sendButton.innerText = 'Error. Try again.';
-  // });
+  .catch(error => {
+  console.error("Error request:", error.message);
+  sendButton.innerText = 'Error. Try again.';
+  });
  }
 }
