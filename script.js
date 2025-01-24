@@ -10,7 +10,7 @@ fetch('https://openai-server-4d3w.onrender.com/check-mac', {
   .then(response => response.json())
   .then(data => {
     if (data.success) token = data.token;
-    else alert('Unauthorized MAC address. Access denied.');
+    else alert('Sorry...');
   })
   .catch(error => console.error('Error:', error));
 
