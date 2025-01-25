@@ -1,10 +1,10 @@
 ﻿let token = null;
 
-fetch('https://openai-server-4d3w.onrender.com/check-mac',
+fetch('https://openai-server-4d3w.onrender.com/checka',
  {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ mac: new URLSearchParams(window.location.search).get('mac') })
+  body: JSON.stringify({ aaa: new URLSearchParams(window.location.search).get('aaa') })
 })
   .then(response => response.json())
   .then(data => {
