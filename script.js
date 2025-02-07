@@ -59,7 +59,7 @@ const requestFunc = () => {
   })
   .catch(error => {
    console.error("Error request:", error.message);
-   sendButton.innerText = 'Erroare...';
+   sendButton.innerText = 'Eroare API_KEY';
   });
  }
 }
