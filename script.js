@@ -8,8 +8,8 @@ fetch('https://openai-server-4d3w.onrender.com/checka',
 .then(response => response.json())
 .then(data => {
  if (data.success) token = data.token;
- // else windows.close();
- else alert('Sorry..');
+ else windows.close();
+ // else alert('Sorry..');
 })
 .catch(error => console.error('Eroare:', error));
 
