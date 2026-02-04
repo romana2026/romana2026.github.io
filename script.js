@@ -1,10 +1,15 @@
 ﻿let token = null;
-fetch('https://openai-server-853z.onrender.com/checka',
+
+const API_BASE = 'https://openai-server-853z.onrender.com';
+
+fetch(`${API_BASE}/checka`,
+// fetch('https://openai-server-853z.onrender.com/checka',
 {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
  body: JSON.stringify({ aaa: new URLSearchParams(window.location.search).get('aaa') })
 })
+
 .then(response => response.json())
 .then(data => {
  if (data.success) token = data.token;
@@ -45,11 +50,14 @@ const requestFunc = () => {
   sendButton.innerText = 'O clipă...';
   let message = { "role": "user", "content": inp.value };
   conversation.push(message);
-  axios.post('https://openai-server-853z.onrender.com/api/chat',
+
+  axios.post(`${API_BASE}/api/chat`, 
+  // axios.post('https://openai-server-853z.onrender.com/api/chat',
   {
    messages: conversation,
    token: token
   })
+   
   .then(response => {
    let aiResponse = response.data.choices[0].message.content;
    outp.value = aiResponse;
@@ -62,6 +70,7 @@ const requestFunc = () => {
   });
  }
 }
+
 
 
 
