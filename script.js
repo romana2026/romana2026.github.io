@@ -3,7 +3,6 @@
 const API_BASE = 'https://openai-server-853z.onrender.com';
 
 fetch(`${API_BASE}/checka`,
-// fetch('https://openai-server-853z.onrender.com/checka',
 {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
@@ -52,7 +51,6 @@ const requestFunc = () => {
   conversation.push(message);
 
   axios.post(`${API_BASE}/api/chat`, 
-  // axios.post('https://openai-server-853z.onrender.com/api/chat',
   {
    messages: conversation,
    token: token
@@ -70,6 +68,7 @@ const requestFunc = () => {
   });
  }
 }
+
 
 
 
