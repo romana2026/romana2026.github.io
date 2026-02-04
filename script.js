@@ -45,7 +45,7 @@ const requestFunc = () => {
   sendButton.innerText = 'O clipă...';
   let message = { "role": "user", "content": inp.value };
   conversation.push(message);
-  axios.post('https://openai-server-/853z.onrender.com/api/chat',
+  axios.post('https://openai-server-853z.onrender.com/api/chat',
   {
    messages: conversation,
    token: token
@@ -62,6 +62,7 @@ const requestFunc = () => {
   });
  }
 }
+
 
 
 
