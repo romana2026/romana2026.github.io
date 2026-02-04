@@ -56,12 +56,13 @@ const requestFunc = () => {
    conversation.push({ "role": "assistant", "content": aiResponse });
    talk(aiResponse);
   })
-  .catch(error => {
-   console.error("Error request:", error.message);
-   sendButton.innerText = 'Eroare API_KEY';
+   .catch(error => {
+  console.error("Error request:", error.response?.data || error.message);
+  sendButton.innerText = 'Eroare server';
   });
  }
 }
+
 
 
 
