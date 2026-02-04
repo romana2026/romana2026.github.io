@@ -57,11 +57,12 @@ const requestFunc = () => {
    talk(aiResponse);
   })
    .catch(error => {
-  console.error("Error request:", error.response?.data || error.message);
+  console.error("Error request:", error);
   sendButton.innerText = 'Eroare server';
   });
  }
 }
+
 
 
 
