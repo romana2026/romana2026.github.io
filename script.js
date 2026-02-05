@@ -30,6 +30,37 @@ const speech = () => {
  sendButton.innerText = 'Vorbiți...';
 }
 
+let voices = [];                                  //
+                                                  //
+speechSynthesis.onvoiceschanged = () => {         //
+  voices = speechSynthesis.getVoices();           //
+};
+
+const talk = (text) => {                          //
+  let utterance = new SpeechSynthesisUtterance(text);
+
+  const roVoice = voices.find(v =>
+    v.lang === 'ro-RO' || v.lang.startsWith('ro')
+  );
+
+  if (roVoice) {
+    utterance.voice = roVoice;
+    utterance.lang = roVoice.lang;
+  } else {
+    utterance.lang = 'ro-RO';
+    console.warn('Romanian voice not found, using default voice');
+  }
+
+  utterance.rate = 0.9;
+
+  utterance.onend = () => {
+    sendButton.innerText = 'Doriți să mai spuneți ceva? Apăsați aici - și vorbiți';
+  };
+
+  speechSynthesis.speak(utterance);
+};
+
+/*
 const talk = (text) => {
  let textToTalk = new SpeechSynthesisUtterance(text);
  textToTalk.onend = function(event) {
@@ -39,6 +70,7 @@ const talk = (text) => {
  textToTalk.rate = 0.5;
  text2speech.speak(textToTalk);
 }
+*/
 
 speech2text.onresult = (event) => {                    
  inp.value = event.results[0][0].transcript;
@@ -68,11 +100,5 @@ const requestFunc = () => {
   });
  }
 }
-
-
-
-
-
-
 
 
