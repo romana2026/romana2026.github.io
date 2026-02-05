@@ -60,6 +60,10 @@ const talk = (text) => {                          //
   speechSynthesis.speak(utterance);
 };
 
+console.log(
+  speechSynthesis.getVoices().map(v => `${v.name} (${v.lang})`)
+);
+
 /*
 const talk = (text) => {
  let textToTalk = new SpeechSynthesisUtterance(text);
@@ -100,5 +104,6 @@ const requestFunc = () => {
   });
  }
 }
+
 
 
