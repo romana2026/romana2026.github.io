@@ -22,7 +22,6 @@ let outp = window.document.getElementById('textOutput');
 let conversation = [];
 
 let speech2text = new webkitSpeechRecognition();
-let text2speech = window.speechSynthesis;
 
 const speech = () => {
  speech2text.lang = 'ro-RO';
@@ -30,51 +29,26 @@ const speech = () => {
  sendButton.innerText = 'Vorbiți...';
 }
 
-let voices = [];                                  //
-                                                  //
-speechSynthesis.onvoiceschanged = () => {         //
-  voices = speechSynthesis.getVoices();           //
-};
+const talk = async (text) => {
+  try {
+    const res = await axios.post(`${API_BASE}/api/tts`, {
+      text: text,
+      token: token
+    });
 
-const talk = (text) => {                          //
-  let utterance = new SpeechSynthesisUtterance(text);
+    const audio = new Audio(res.data.audio);
+    audio.play();
 
-  const roVoice = voices.find(v =>
-    v.lang === 'ro-RO' || v.lang.startsWith('ro')
-  );
+    audio.onended = () => {
+      sendButton.innerText =
+        'Doriți să mai spuneți ceva? Apăsați aici - și vorbiți';
+    };
 
-  if (roVoice) {
-    utterance.voice = roVoice;
-    utterance.lang = roVoice.lang;
-  } else {
-    utterance.lang = 'ro-RO';
-    console.warn('Romanian voice not found, using default voice');
+  } catch (e) {
+    console.error('TTS error:', e);
+    sendButton.innerText = 'Eroare TTS';
   }
-
-  utterance.rate = 0.9;
-
-  utterance.onend = () => {
-    sendButton.innerText = 'Doriți să mai spuneți ceva? Apăsați aici - și vorbiți';
-  };
-
-  speechSynthesis.speak(utterance);
 };
-
-console.log(
-  speechSynthesis.getVoices().map(v => `${v.name} (${v.lang})`)
-);
-
-/*
-const talk = (text) => {
- let textToTalk = new SpeechSynthesisUtterance(text);
- textToTalk.onend = function(event) {
- sendButton.innerText = 'Doriți să mai spuneți ceva? Apăsați aici - și vorbiți';
- };
- textToTalk.lang = 'ro-RO';
- textToTalk.rate = 0.5;
- text2speech.speak(textToTalk);
-}
-*/
 
 speech2text.onresult = (event) => {                    
  inp.value = event.results[0][0].transcript;
@@ -104,6 +78,3 @@ const requestFunc = () => {
   });
  }
 }
-
-
-
