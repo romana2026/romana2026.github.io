@@ -8,13 +8,19 @@ function repeatLast() {
 }
  
 const API_BASE = 'https://openai-server-853z.onrender.com';
+const params = new URLSearchParams(window.location.search);
 
 fetch(`${API_BASE}/checka`,
 {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
- body: JSON.stringify({ aaa: new URLSearchParams(window.location.search).get('aaa') })
-})
+ // body: JSON.stringify({ aaa: new URLSearchParams(window.location.search).get('aaa') })
+ body: JSON.stringify({
+  aaa: params.get('aaa'),
+  t: params.get('t'),
+  s: params.get('s')
+ })
+});
 
 .then(response => response.json())
 .then(data => {
