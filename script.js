@@ -21,7 +21,7 @@ fetch(`${API_BASE}/checka`,
   t: params.get('t'),
   s: params.get('s')
  })
-});
+})
 
 .then(response => response.json())
 .then(data => {
@@ -95,6 +95,7 @@ const requestFunc = () => {
   });
  }
 }
+
 
 
 
