@@ -1,4 +1,3 @@
-alert("script.js loaded");
 let token = null;
 let lastAudio = null;
 let speechSpeed = 0.7;  
@@ -95,6 +94,7 @@ const requestFunc = () => {
   });
  }
 }
+
 
 
 
