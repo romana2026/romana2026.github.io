@@ -37,3 +37,9 @@ font-weight: bold;
 #textOutput::placeholder {
 font-weight: bold;
 }
+
+html, body, * {
+ pointer-events: auto;
+}
+
+
