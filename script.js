@@ -14,7 +14,6 @@ fetch(`${API_BASE}/checka`,
 {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
- // body: JSON.stringify({ aaa: new URLSearchParams(window.location.search).get('aaa') })
  body: JSON.stringify({
   aaa: params.get('aaa'),
   t: params.get('t'),
@@ -94,14 +93,3 @@ const requestFunc = () => {
   });
  }
 }
-
-
-
-
-
-
-
-
-
-
-
