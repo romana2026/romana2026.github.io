@@ -33,6 +33,17 @@ let inp = window.document.getElementById('textInput');
 let outp = window.document.getElementById('textOutput');
 let conversation = [];
 
+const initialPrompt = document
+  .getElementById('initialPrompt')
+  .value.trim();
+
+let conversation = [
+  {
+    role: "system",
+    content: initialPrompt
+  }
+];
+
 let speech2text = new webkitSpeechRecognition();
 
 const speech = () => {
