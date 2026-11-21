@@ -31,7 +31,6 @@ fetch(`${API_BASE}/checka`,
 let sendButton = window.document.getElementById('sendButton');
 let inp = window.document.getElementById('textInput');
 let outp = window.document.getElementById('textOutput');
-let conversation = [];
 
 const initialPrompt = document
   .getElementById('initialPrompt')
